@@ -9,11 +9,11 @@ inputs:
   directory:
     description: 'Directory to lint'
     required: false
-    default: .
+    default: '**/*.xml'
   options:
     description: 'Additional options'
     required: false
-    default: '--format auto'
+    default: '--noout'
 runs:
   using: 'docker'
   image: docker://pipelinecomponents/xmllint
