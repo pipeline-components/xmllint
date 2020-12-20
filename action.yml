@@ -1,0 +1,23 @@
+---
+name: 'pipeline-components-xmllint'
+description: 'XML Lint by Pipeline Components'
+author: 'Robbert Müller <spam.me@grols.ch>'
+branding:
+  icon: 'flag'
+  color: 'green'
+inputs:
+  directory:
+    description: 'Directory to lint'
+    required: false
+    default: .
+  options:
+    description: 'Additional options'
+    required: false
+    default: '--format auto'
+runs:
+  using: 'docker'
+  image: docker://pipelinecomponents/xmllint
+  args:
+    - xmllint
+    - '${{ inputs.options }}'
+    - '${{ inputs.directory }}'
