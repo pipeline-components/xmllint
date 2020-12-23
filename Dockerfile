@@ -8,9 +8,6 @@ COPY --from=entrypoint /entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 ENV DEFAULTCMD xmllint
 
-WORKDIR /app/
-
-# Generic
 COPY app /app/
 
 WORKDIR /code/
