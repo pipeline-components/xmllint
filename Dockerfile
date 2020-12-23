@@ -1,8 +1,9 @@
+FROM pipelinecomponents/base-entrypoint:0.2.0 as entrypoint
+
 FROM alpine:3.12.3
 
 RUN apk add --no-cache bash libxml2-utils
 
-FROM pipelinecomponents/base-entrypoint:0.2.0 as entrypoint
 COPY --from=entrypoint /entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 ENV DEFAULTCMD xmllint
