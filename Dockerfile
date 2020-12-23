@@ -2,7 +2,7 @@ FROM pipelinecomponents/base-entrypoint:0.2.0 as entrypoint
 
 FROM alpine:3.12.3
 
-RUN apk add --no-cache bash libxml2-utils
+RUN apk add --no-cache bash=5.0.17-r0 libxml2-utils=2.9.10-r5
 
 COPY --from=entrypoint /entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
