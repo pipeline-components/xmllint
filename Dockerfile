@@ -1,26 +1,34 @@
-FROM pipelinecomponents/base-entrypoint:0.2.0 as entrypoint
+# ==============================================================================
+# Add https://gitlab.com/pipeline-components/org/base-entrypoint
+# ------------------------------------------------------------------------------
+FROM pipelinecomponents/base-entrypoint:0.3.0 as entrypoint
 
+# ==============================================================================
+# Component specific
+# ------------------------------------------------------------------------------
 FROM alpine:3.12.3
+COPY app /app/
+RUN apk add --no-cache libxml2-utils=2.9.10-r5
 
-RUN apk add --no-cache bash=5.0.17-r0 libxml2-utils=2.9.10-r5
-
+# ==============================================================================
+# Generic for all components
+# ------------------------------------------------------------------------------
 COPY --from=entrypoint /entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 ENV DEFAULTCMD xmllint
 
-COPY app /app/
-
 WORKDIR /code/
 
-# Build arguments
+# ==============================================================================
+# Container meta information
+# ------------------------------------------------------------------------------
 ARG BUILD_DATE
 ARG BUILD_REF
 
-# Labels
 LABEL \
     maintainer="Robbert Müller <spam.me@grols.ch>" \
-    org.label-schema.description="XML Lint in a container for gitlab-ci" \
     org.label-schema.build-date=${BUILD_DATE} \
+    org.label-schema.description="XML Lint in a container for gitlab-ci" \
     org.label-schema.name="XML Lint" \
     org.label-schema.schema-version="1.0" \
     org.label-schema.url="https://pipeline-components.dev/" \
