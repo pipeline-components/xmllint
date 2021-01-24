@@ -26,7 +26,7 @@ ARG BUILD_DATE
 ARG BUILD_REF
 
 LABEL \
-    maintainer="Robbert Müller <spam.me@grols.ch>" \
+    maintainer="Robbert Müller <dev@pipeline-components.dev>" \
     org.label-schema.build-date=${BUILD_DATE} \
     org.label-schema.description="XML Lint in a container for gitlab-ci" \
     org.label-schema.name="XML Lint" \
