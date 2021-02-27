@@ -21,7 +21,7 @@ The image is for running xmllint, xmllint is installed in /app/ in case you need
 ```yaml
 xmllint:
   stage: linting
-  image: pipelinecomponents/xmllint:latest
+  image: registry.gitlab.com/pipeline-components/xmllint:latest
   script:
     - find -type f -iname "*.xml" | xargs xmllint --noout
 ```
