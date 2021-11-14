@@ -8,7 +8,7 @@ FROM pipelinecomponents/base-entrypoint:0.5.0 as entrypoint
 # ------------------------------------------------------------------------------
 FROM alpine:3.13.5
 COPY app /app/
-RUN apk add --no-cache libxml2-utils=2.9.10-r6
+RUN apk add --no-cache libxml2-utils=2.9.12-r0
 
 # ==============================================================================
 # Generic for all components
