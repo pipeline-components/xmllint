@@ -21,7 +21,7 @@ xmllint:
   stage: linting
   image: registry.gitlab.com/pipeline-components/xmllint:latest
   script:
-    - find -type f -iname "*.xml" | xargs xmllint --noout
+    - find . -iname "*.xml" -type f -exec xmllint --noout {} \+
 ```
 
 ## Versioning
