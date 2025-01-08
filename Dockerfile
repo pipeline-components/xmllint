@@ -6,7 +6,7 @@ FROM pipelinecomponents/base-entrypoint:0.5.0 as entrypoint
 # ==============================================================================
 # Component specific
 # ------------------------------------------------------------------------------
-FROM alpine:3.20.3
+FROM alpine:3.20.4
 COPY app /app/
 
 # hadolint ignore=DL3018
